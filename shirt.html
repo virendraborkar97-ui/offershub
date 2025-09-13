@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offers Hub</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    /* Header (from index1.html) */
+    header {
+      background:#fff;
+      position:sticky;
+      top:0;
+      z-index:10;
+      border-bottom:1px solid rgba(0,0,0,0.05);
+    }
+    .header-inner {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      max-width:1200px;
+      margin:0 auto;
+      padding:12px 16px;
+    }
+    .logo {
+      font-weight:700;
+      font-size:18px;
+      color:#ff6b35; /* accent */
+    }
+    .search {
+      flex:1;
+      display:flex;
+      gap:8px;
+    }
+    .search input {
+      flex:1;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid #ddd;
+    }
+    .search button {
+      padding:10px 14px;
+      border-radius:8px;
+      border:0;
+      background:#ff6b35;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .product-page {
+      display: flex;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Left: Image Gallery */
+    .gallery {
+      flex: 1;
+      display: flex;
+      gap: 10px;
+    }
+    .thumbnails {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .thumbnails img {
+      width: 60px;
+      height: 60px;
+      border-radius: 6px;
+      cursor: pointer;
+      object-fit: cover;
+      border: 2px solid transparent;
+      transition: 0.3s;
+    }
+    .thumbnails img:hover {
+      border: 2px solid #6c63ff;
+    }
+    .main-image img {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+/* Feature Bar */
+    .feature-bar {
+      background: #ffeaf2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 10px;
+      font-weight: 600;
+      border-radius: 8px;
+      margin: 20px auto;
+      max-width: 100%;
+    }
+
+    /* Right: Product Info */
+    .details {
+      flex: 1.5;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #e63946;
+      margin-bottom: 8px;
+    }
+    .rating {
+      font-size: 14px;
+      color: #388e3c;
+      margin-bottom: 15px;
+    }
+    .sizes {
+      margin: 15px 0;
+    }
+    .sizes button {
+      padding: 8px 14px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #fff;
+      transition: 0.3s;
+    }
+    .sizes button:hover {
+      border-color: #6c63ff;
+    }
+    .sizes button.active {
+      background: #6c63ff;
+      color: #fff;
+    }
+    .buy-btn {
+      margin-top: 20px;
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* Description */
+    .description {
+      margin-top: 30px;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+    .description h2 {
+      margin-bottom: 10px;
+    }
+
+    /* Reviews */
+    .reviews {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .review {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+    .review img {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .review-text {
+      flex: 1;
+    }
+    .review-text strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    /* Similar Products */
+    .similar-products {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .similar-products h2 {
+      margin-bottom: 20px;
+    }
+    .similar-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* always 4 items per row */
+      gap: 15px;
+    }
+    .similar-item {
+      background: #f9f9f9;
+      border-radius: 8px;
+      text-align: center;
+      padding: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .similar-item:hover {
+      background: #ececec;
+    }
+    .similar-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .similar-item p {
+      margin-top: 5px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+      .product-page {
+        flex-direction: column;
+      }
+      .main-image img {
+        width: 100%;
+        height: auto;
+      }
+	  .similar-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+	  }
+	  .similar-item p {
+      margin-top: 5px;
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    }
+	
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="header-inner">
+    <div class="logo" onclick="event.stopPropagation();openProduct('index.html')">Offers Hub</div>
+    <div class="search">
+      <input type="text" id="searchInput" placeholder="Search products...">
+      <button id="searchBtn">Search</button>
+    </div>
+  </div>
+</header>
+
+<div class="product-page">
+  <!-- Left Gallery -->
+  <div class="gallery">
+    <div class="main-image">
+      <img id="main-img" src="shirt1.jpg" alt="Fatty Mouse Men's Shirt">
+    </div>
+    <div class="thumbnails">
+      <img src="shirt1.jpg" onclick="showImage(this.src)">
+      <img src="shirt2.jpg" onclick="showImage(this.src)">
+      <img src="shirt3.jpg" onclick="showImage(this.src)">
+      <img src="shirt4.jpg" onclick="showImage(this.src)">
+	</div>
+  </div>
+
+  <!-- Right Product Info -->
+  <div class="details">
+    <h1>Fatty Mouse Men's Shirts</h1>
+    <p class="price">₹254</p>
+    <p class="rating">⭐ 3.8 | 32114 Ratings | 8739 Reviews</p>
+
+    <div class="sizes">
+      <p><b>Select Size:</b></p>
+      <button onclick="selectSize(this)">M</button>
+      <button onclick="selectSize(this)">L</button>
+      <button onclick="selectSize(this)">XL</button>
+      <button onclick="selectSize(this)">XXL</button>
+    </div>
+
+    <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+
+    <div class="description">
+      <h2>Product Details</h2>
+      <p>
+        Name: Fatty Mouse Men's Shirts <br>
+        Fabric: Cotton Blend <br>
+        Sleeve Length: Long Sleeves <br>
+        Pattern: Solid <br>
+        Country of Origin: India
+      </p>
+    </div>
+  </div>
+</div>
+<!-- Feature Bar -->
+    <div class="feature-bar">
+      <div>🚚 7 Days Easy Return</div>
+      <div>💰 Cash on Delivery</div>
+      <div>🏷️ Lowest Prices</div>
+    </div>
+<!-- Similar Products -->
+<div class="similar-products">
+  <h2>Similar Products</h2>
+  <div class="similar-grid" id="productList">
+    <div class="similar-item" onclick="openProduct('product1.html')">
+      <img src="shirt1.jpg" alt="Men's Shirt Red">
+      <p>Men's Shirt Red</p>
+    </div>
+    <div class="similar-item" onclick="openProduct('product2.html')">
+      <img src="similar2.jpg" alt="Men's Shirt Blue">
+      <p>Men's Shirt Blue</p>
+    </div>
+    <div class="similar-item" onclick="openProduct('product3.html')">
+      <img src="similar3.jpg" alt="Men's Shirt Green">
+      <p>Men's Shirt Green</p>
+    </div>
+    <div class="similar-item" onclick="openProduct('product4.html')">
+      <img src="similar4.jpg" alt="Men's Shirt Black">
+      <p>Men's Shirt Black</p>
+    </div>
+    <div class="similar-item" onclick="openProduct('product5.html')">
+      <img src="similar5.jpg" alt="Men's Shirt Yellow">
+      <p>Men's Shirt Yellow</p>
+    </div>
+  </div>
+</div>
+
+<!-- Reviews Section -->
+<div class="reviews">
+  <h2>Customer Reviews</h2>
+  <div class="review">
+    <img src="cust1.jpg" alt="Customer Review">
+    <div class="review-text">
+      <strong>Rahul Sharma</strong>
+      <p>Very good quality shirt, fabric is soft and comfortable. Worth the price!</p>
+    </div>
+  </div>
+  <div class="review">
+    <img src="cust2.jpg" alt="Customer Review">
+    <div class="review-text">
+      <strong>Anita Verma</strong>
+      <p>Nice fitting, but delivery took a little longer. Overall happy with the product.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+let selectedSize = "";
+
+function showImage(src) {
+  document.getElementById("main-img").src = src;
+}
+
+function selectSize(button) {
+  const buttons = document.querySelectorAll(".sizes button");
+  buttons.forEach(btn => btn.classList.remove("active"));
+  button.classList.add("active");
+  selectedSize = button.innerText;
+}
+
+function buyNow() {
+  const productName = "Fatty Mouse Men's Shirts";
+  const price = "₹254";
+  const size = selectedSize ? selectedSize : "Not Selected";
+
+  const phone = "918080903137"; // change to your WhatsApp number
+
+  const message = `Hello, I want to buy:\n\nProduct: ${productName}\nPrice: ${price}\nSize: ${size}`;
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank");
+}
+
+function openProduct(page) {
+  window.location.href = page;
+}
+
+// Search function (basic filter on similar products)
+document.getElementById("searchBtn").addEventListener("click", searchProduct);
+function searchProduct() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let products = document.querySelectorAll(".similar-item");
+
+  products.forEach(product => {
+    let name = product.querySelector("p").innerText.toLowerCase();
+    if (name.includes(input)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+</script>
+<!-- Footer -->
+<footer style="background:#222;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;">
+  <div style="margin-bottom:15px;">
+    <a href="https://facebook.com" target="_blank" style="margin:0 8px;display:inline-block;width:40px;height:40px;line-height:40px;background:#3b5998;color:#fff;border-radius:50%;text-align:center;font-size:18px;text-decoration:none;">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://instagram.com" target="_blank" style="margin:0 8px;display:inline-block;width:40px;height:40px;line-height:40px;background:#e4405f;color:#fff;border-radius:50%;text-align:center;font-size:18px;text-decoration:none;">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://twitter.com" target="_blank" style="margin:0 8px;display:inline-block;width:40px;height:40px;line-height:40px;background:#1da1f2;color:#fff;border-radius:50%;text-align:center;font-size:18px;text-decoration:none;">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://youtube.com" target="_blank" style="margin:0 8px;display:inline-block;width:40px;height:40px;line-height:40px;background:#ff0000;color:#fff;border-radius:50%;text-align:center;font-size:18px;text-decoration:none;">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </div>
+  <p style="margin:0;font-size:14px;color:#ccc;">© 2025 Offers Hub. All rights reserved.</p>
+  <p style="margin:5px 0 0;font-size:12px;color:#aaa;">Your trusted e-commerce destination for fashion, electronics, and more.</p>
+</footer>
+
+</body>
+</html>

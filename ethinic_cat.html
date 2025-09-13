@@ -6,10 +6,8 @@
   <title>Offers Hub</title>
   <link rel="icon" type="image/png" href="favicon.png">
 
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <style>
     :root{
       --bg:#fafafa;
@@ -199,9 +197,9 @@
   <div class="container">
     <section class="hero">
       <div class="hero-left">
-        <h2>Big Sale — Up to 60% Off</h2>
+        <h2>Big Sale — Up to 60% Off on Ethinic Wear</h2>
         <p>Handpicked offers across categories. Free shipping on orders over ₹499.</p>
-        <button class="buy-btn" onclick="event.stopPropagation();openProduct('product1.html')">Buy Now</button>
+        
       </div>
     </section>
 
@@ -212,47 +210,7 @@
       <div>🏷️ Lowest Prices</div>
     </div>
 
-    <!-- Category Section -->
-    <section class="categories">
-      <div class="category" onclick="window.location.href='ethinic_cat.html'">
-        <img src="ethnic.jpg" alt="Ethnic Wear">
-        <p>Ethnic Wear</p>
-      </div>
-      <div class="category" onclick="window.location.href='western.html'">
-        <img src="western.jpg" alt="Western Dresses">
-        <p>Western Dresses</p>
-      </div>
-      <div class="category" onclick="window.location.href='mens.html'">
-        <img src="mens.jpg" alt="Menswear">
-        <p>Menswear</p>
-      </div>
-      <div class="category" onclick="window.location.href='footwear.html'">
-        <img src="sneakers.jpg" alt="Footwear">
-        <p>Footwear</p>
-      </div>
-      <div class="category" onclick="window.location.href='decor.html'">
-        <img src="decor.jpg" alt="Home Decor">
-        <p>Home Decor</p>
-      </div>
-      <div class="category" onclick="window.location.href='beauty.html'">
-        <img src="beauty.jpg" alt="Beauty">
-        <p>Beauty</p>
-      </div>
-      <div class="category" onclick="window.location.href='accessories.html'">
-        <img src="bag.jpg" alt="Accessories">
-        <p>Accessories</p>
-      </div>
-      <div class="category" onclick="window.location.href='grocery.html'">
-        <img src="grocery.jpg" alt="Grocery">
-        <p>Grocery</p>
-      </div>
-    </section>
-
-    <!-- Featured Products Title -->
-    <div class="feature-bar">
-      <div>🔥🔥 Featured Products 🔥🔥</div>
-    </div>
-
+  
     <!-- Product Grid -->
     <section class="product-grid" id="productGrid">
       <div class="product" data-title="Classic Cotton Shirt" onclick="openProduct('saree.html')">
@@ -260,7 +218,7 @@
         <div class="title">Voguish saree</div>
         <div class="meta">Brand A • Blue</div>
         <div class="price">₹367</div>
-        <button class="buy-btn" >Buy Now</button>
+        <button class="buy-btn" onclick="event.stopPropagation();openProduct('product.html')">Buy Now</button>
       </div>
 
       <div class="product" data-title="Stylish Sneakers" onclick="openProduct('product2.html')">
@@ -268,15 +226,15 @@
         <div class="title">Alluring Saree</div>
         <div class="meta">Brand B • White</div>
         <div class="price">₹268</div>
-        <button class="buy-btn" >Buy Now</button>
+        <button class="buy-btn" onclick="event.stopPropagation();openProduct('product2.html')">Buy Now</button>
       </div>
 
       <div class="product" data-title="Minimalist Handbag" onclick="openProduct('product3.html')">
-        <div class="thumb"><img src="f3.jpg" alt=""></div>
+        <div class="thumb"><img src="f10.jpg" alt=""></div>
         <div class="title">Minimalist Handbag</div>
         <div class="meta">Brand C • Tan</div>
         <div class="price">₹1,999</div>
-        <button class="buy-btn" >Buy Now</button>
+        <button class="buy-btn" onclick="event.stopPropagation();openProduct('product3.html')">Buy Now</button>
       </div>
 
       <!-- Duplicate Products -->
@@ -285,15 +243,15 @@
         <div class="title">Classic Cotton Shirt</div>
         <div class="meta">Brand A • Blue</div>
         <div class="price">₹799</div>
-        <button class="buy-btn" >Buy Now</button>
+        <button class="buy-btn" onclick="event.stopPropagation();openProduct('product1.html')">Buy Now</button>
       </div>
 
       <div class="product" data-title="Stylish Sneakers" onclick="openProduct('product2.html')">
-        <div class="thumb"><img src="f5.jpg" alt=""></div>
+        <div class="thumb"><img src="f11.jpg" alt=""></div>
         <div class="title">Stylish Sneakers</div>
         <div class="meta">Brand B • White</div>
         <div class="price">₹1,299</div>
-        <button class="buy-btn" >Buy Now</button>
+        <button class="buy-btn" onclick="event.stopPropagation();openProduct('product2.html')">Buy Now</button>
       </div>
 
       <div class="product" data-title="Minimalist Handbag" onclick="openProduct('product3.html')">
@@ -301,22 +259,22 @@
         <div class="title">Minimalist Handbag</div>
         <div class="meta">Brand C • Tan</div>
         <div class="price">₹1,999</div>
-        <button class="buy-btn" >Buy Now</button>
+        <button class="buy-btn" onclick="event.stopPropagation();openProduct('product3.html')">Buy Now</button>
       </div>
-	  <div class="product" data-title="Classic Cotton Shirt" onclick="openProduct('shirt.html')">
-        <div class="thumb"><img src="shirt1.jpg" alt=""></div>
+	  <div class="product" data-title="Classic Cotton Shirt" onclick="openProduct('product1.html')">
+        <div class="thumb"><img src="f7.jpg" alt=""></div>
         <div class="title">Classic Cotton Shirt</div>
         <div class="meta">Brand A • Blue</div>
         <div class="price">₹799</div>
-        <button class="buy-btn" >Buy Now</button>
+        <button class="buy-btn" onclick="event.stopPropagation();openProduct('product1.html')">Buy Now</button>
       </div>
 
       <div class="product" data-title="Stylish Sneakers" onclick="openProduct('product2.html')">
-        <div class="thumb"><img src="f8.jpg" alt=""></div>
+        <div class="thumb"><img src="f12.jpg" alt=""></div>
         <div class="title">Stylish Sneakers</div>
         <div class="meta">Brand B • White</div>
         <div class="price">₹1,299</div>
-        <button class="buy-btn" >Buy Now</button>
+        <button class="buy-btn" onclick="event.stopPropagation();openProduct('product2.html')">Buy Now</button>
       </div>
     </section>
   </div>
@@ -345,7 +303,9 @@
       if(e.key === 'Enter'){ filterProducts(); }
     });
   </script>
-  <!-- Footer -->
+
+
+<!-- Footer -->
 <footer style="background:#222;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;">
   <div style="margin-bottom:15px;">
     <a href="https://facebook.com" target="_blank" style="margin:0 8px;display:inline-block;width:40px;height:40px;line-height:40px;background:#3b5998;color:#fff;border-radius:50%;text-align:center;font-size:18px;text-decoration:none;">
@@ -364,6 +324,7 @@
   <p style="margin:0;font-size:14px;color:#ccc;">© 2025 Offers Hub. All rights reserved.</p>
   <p style="margin:5px 0 0;font-size:12px;color:#aaa;">Your trusted e-commerce destination for fashion, electronics, and more.</p>
 </footer>
+
 
 </body>
 </html>
